@@ -1,0 +1,5 @@
+*.zip
+*.img
+*.qcow
+*.qcow2
+data
