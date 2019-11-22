@@ -23,15 +23,17 @@ apt-install:
 	sudo apt update
 	sudo apt install -y qemu-utils qemu-system-arm openssh-client sshpass uml-utilities
 
+.ONESHELL:
 download:
 	mkdir -p data
+	cd data
 
-	cd data && wget -c https://github.com/dhruvvyas90/qemu-rpi-kernel/raw/master/${KERNEL}
-	cd data && wget -c https://downloads.raspberrypi.org/raspbian/images/raspbian-${IMAGE_VERSION}/${_IMAGE}.zip
+	wget -c https://github.com/dhruvvyas90/qemu-rpi-kernel/raw/master/${KERNEL}
+	wget -c https://downloads.raspberrypi.org/raspbian/images/raspbian-${IMAGE_VERSION}/${_IMAGE}.zip
 
-	cd data && unzip ${_IMAGE}.zip
-	cd data && qemu-img convert ${_IMAGE}.img ${_IMAGE}.qcow2
-	cd data && rm ${_IMAGE}.img
+	unzip ${_IMAGE}.zip
+	qemu-img convert ${_IMAGE}.img ${_IMAGE}.qcow2
+	rm ${_IMAGE}.img
 
 ssh:
 	sshpass -p ${SSH_PASS} ssh pi@172.16.0.2
