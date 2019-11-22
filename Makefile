@@ -1,13 +1,12 @@
 KERNEL = kernel-qemu-4.4.34-jessie
 IMAGE_VERSION = 2017-04-10
 IMAGE_TYPE = jessie
+
 SSH_PASS = raspberry
 
 _IMAGE=${IMAGE_VERSION}-raspbian-${IMAGE_TYPE}
 
 run:
-	@echo in emulator run: '$ sudo ifconfig eth0 172.16.0.2'
-
 	sudo tunctl -t tap0 -u ${USER}
 	sudo ifconfig tap0 172.16.0.1/24
 
