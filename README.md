@@ -2,7 +2,7 @@
 Script to automate running raspberry-pi on x86 linux using qemu and ssh into it easily
 
 ## How to run
-```
+```bash
 git clone https://github.com/mido3ds/run-pi
 cd run-pi
 
@@ -13,7 +13,7 @@ make run
 
 ## How to ssh
 ### On raspberry-pi
-```
+```bash
 # you need to run these one time
 sudo systemctl enable ssh
 sudo systemctl start ssh
